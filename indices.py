@@ -276,5 +276,19 @@ print(grupos.mean)
 print(grupos['PREÇO MÉDIO REVENDA'].mean())
 
 # a funcao .agg traz adiciona uma funcao ou mais para elementos de um dataframe, nocaso estamos calculando o numero minimo e maximo para a coluna preco medio revenda de cada elemento da coluna regiao 
-print(grupos['PREÇO MÉDIO REVENDA'].agg([min, max]))
+# print(grupos['PREÇO MÉDIO REVENDA'].agg([min, max]))
 
+# print(data_final.describe())
+
+# df = data_final.query('ANO != 2019')
+
+grupos = df.groupby('PRODUTO')
+
+grupos['REGIÃO'].value_counts()
+
+# mostre as medias da gasolina comum no estado de sao paulo no ano de 2018
+gasolina_2018_sp = df.query('PRODUTO =="GASOLINA COMUM" and ESTADO == "SAO PAULO" and ANO == 2018')
+gasolina_2018_sp.describe()
+
+# mostre as medias de etanol e gasolina comum no estado do rio de janeiro no ano de 2018
+gasolina_etanol_rj = df.query('PRODUTO in ["ETANOL", "GASOLINA"] and ESTADO == "RIO DE JANEIRO and ANO == 2018')
